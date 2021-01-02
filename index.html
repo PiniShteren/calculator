@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>calculator</title>
+	<link rel="shortcut icon" href="calculator.jpg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" media="screen" href="style1.css" />
+
+</head>
+
+<body onload="setKey()">
+	<div class="calculator">
+		<input type="text" id="screen" disabled />
+		<div class="buttons">
+            <button id="one" class="bt" onclick="NumBer(1)">1</button>
+		    <button id="tow" class="bt" onclick="NumBer(2)">2</button>
+            <button id="three" class="bt" onclick="NumBer(3)">3</button>
+		    <button id="division" class="bt fanc" onclick="NumBer('/')">/</button>
+		    <button id="four" class="bt" onclick="NumBer(4)">4</button>
+		    <button id="five" class="bt" onclick="NumBer(5)">5</button>
+		    <button id="six" class="bt" onclick="NumBer(6)">6</button>
+		    <button id="minus" class="bt fanc" onclick="NumBer('-')">-</button>
+		    <button id="seven" class="bt" onclick="NumBer(7)">7</button>
+		    <button id="hight" class="bt" onclick="NumBer(8)">8</button>
+		    <button id="nine" class="bt" onclick="NumBer(9)">9</button>
+			<button id="dual" class="bt fanc" onclick="NumBer('*')">*</button>
+			<button id="plus" class="bt fanc" onclick="NumBer('+')">+</button>
+			<button id="zero" class="bt" onclick="NumBer(0)">0</button>
+			<button id="dot" class="bt fanc" onclick="addDot('dot')">.</button>
+			<button id="percent" class="bt fanc" onclick="NumBer('%')">%</button>		
+			<button id="C" class="bt fanc" onclick="clean()">C</button>
+			<button id="equal" class="bt fanc" onclick="equal()">=</button>
+			
+		</div>
+		
+	</div>
+	<script src="script1.js"></script>
+</body>`
+
+</html>
