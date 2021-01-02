@@ -2,7 +2,7 @@ var p = [];
 let dot = false;
 function NumBer(val) {
 	debugger;
-	if (p.length >= 6) {
+	if (document.getElementById('screen').innerHTML.length >= 7) {
 		document.getElementById('screen').style.fontSize = '20px';
 	}
 	if (
@@ -21,29 +21,38 @@ function NumBer(val) {
 	if (p.length === 0) {
 		if (val >= 0 && val <= 9) {
 			p.push(val);
-			document.getElementById('screen').value = val;
+			document.getElementById('screen').innerHTML = val;
 		}
 	}
 	else {
 		if (val >= 0 && val <= 9) {
 			if ((p[p.length - 1] >= 0 && p[p.length - 1] <= 9) || p[p.length - 1] === '.') {
 				p.push(val);
-				v = document.getElementById('screen').value.toString() + val;
-				console.log(v);
+				v = document.getElementById('screen').innerHTML.toString() + val;
 				v = v.replace(/,/g, '');
-				console.log(v);
-				document.getElementById('screen').value = Math.floor(v).toLocaleString();
+				if (v.indexOf('.') > 0) {
+					let index = v.indexOf('.');
+					let num1 = v.slice(0, index);
+					num1 = Math.floor(num1).toLocaleString();
+					let num2 = v.slice(index);
+					v = num1 + num2;
+					console.log(v);
+				}
+				else {
+					v = Math.floor(v).toLocaleString();
+				}
+				document.getElementById('screen').innerHTML = v;
 				return;
 			}
 			else {
 				p.push(val);
-				document.getElementById('screen').value = val.toLocaleString();
+				document.getElementById('screen').innerHTML = val.toLocaleString();
 				dot = false;
 			}
 		}
 		else {
 			if (val === '%') {
-				document.getElementById('screen').value += val;
+				document.getElementById('screen').innerHTML += val;
 				let p1 = p[0].toString();
 				let p2 = '';
 				let fanc = 0;
@@ -78,7 +87,7 @@ function NumBer(val) {
 					(x.indexOf('/') >= 0 && x.indexOf('/') <= x.length - 2)
 				) {
 					let y = eval(x);
-					document.getElementById('screen').value = y.toLocaleString();
+					document.getElementById('screen').innerHTML = y.toLocaleString();
 					p = [
 						y,
 						val
@@ -95,13 +104,14 @@ function NumBer(val) {
 function addDot() {
 	if (!dot) {
 		p.push('.');
-		document.getElementById('screen').value += '.';
+		document.getElementById('screen').innerHTML += '.';
 		dot = true;
 	}
 }
 
 function clean() {
-	document.getElementById('screen').value = ' ';
+	document.getElementById('screen').style.fontSize = '40px';
+	document.getElementById('screen').innerHTML = ' ';
 	p = [];
 	dot = false;
 }
@@ -122,7 +132,7 @@ function equal() {
 			document.getElementById('screen').style.fontSize = '40px';
 		}
 
-		document.getElementById('screen').value = y.toLocaleString();
+		document.getElementById('screen').innerHTML = y.toLocaleString();
 		p = [
 			y
 		];
@@ -133,3 +143,4 @@ function setKey() {
 		NumBer(event.key);
 	});
 }
+let c = '1111';
