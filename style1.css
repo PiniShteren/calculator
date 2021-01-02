@@ -78,6 +78,13 @@ body {
 }
 @media only screen and (max-width: 400px) {
 	.bt {
-		width: 6vh;
+		width: 5vh;
+	}
+	#C,
+	#equal {
+		width: 90px;
+	}
+	.buttons {
+		width: 80%;
 	}
 }
