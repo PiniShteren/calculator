@@ -1,9 +1,52 @@
 var p = [];
 let dot = false;
 function NumBer(val) {
-	debugger;
-	if (document.getElementById('screen').innerHTML.length >= 7) {
-		document.getElementById('screen').style.fontSize = '20px';
+	switch (document.getElementById('screen').innerHTML.length) {
+		case 7:
+			document.getElementById('screen').style.fontSize = '28px';
+			break;
+		case 9:
+			document.getElementById('screen').style.fontSize = '20px';
+			break;
+		case 26:
+			alert('אי אפשר להכניס יותר תווים');
+			break;
+		case 27:
+			document.getElementById('screen').innerHTML = '';
+			p = [];
+			break;
+	}
+	switch (val) {
+		case NumBer(val), 0:
+			if (p.length === 0) {
+				p.push(val);
+				document.getElementById('screen').innerHTML = val;
+				break;
+			} else {
+				if (Number(p[p.length - 1]) || p[p.length - 1] === 0 || p[p.length - 1] === ".") {
+					p.push(val);
+					let v = 0;
+					v = document.getElementById('screen').innerHTML.toString() + val;
+					v = v.replace(/,/g, '');
+					if (v.indexOf('.') > 0) {
+						let index = v.indexOf('.');
+						let num1 = v.slice(0, index);
+						num1 = Math.floor(num1).toLocaleString();
+						let num2 = v.slice(index);
+						v = num1 + num2;
+						console.log(v);
+					}
+					else {
+						v = Math.floor(v).toLocaleString();
+					}
+					document.getElementById('screen').innerHTML = v;
+					break
+				} else {
+					p.push(val);
+					document.getElementById('screen').innerHTML = val.toLocaleString();
+					dot = false;
+				}
+			}
 	}
 	if (
 		val !== '%' &&
@@ -17,7 +60,7 @@ function NumBer(val) {
 	) {
 		return;
 	}
-	let v = 0;
+
 	if (p.length === 0) {
 		if (val >= 0 && val <= 9) {
 			p.push(val);
@@ -27,6 +70,7 @@ function NumBer(val) {
 	else {
 		if (val >= 0 && val <= 9) {
 			if ((p[p.length - 1] >= 0 && p[p.length - 1] <= 9) || p[p.length - 1] === '.') {
+				debugger
 				p.push(val);
 				v = document.getElementById('screen').innerHTML.toString() + val;
 				v = v.replace(/,/g, '');
@@ -139,8 +183,9 @@ function equal() {
 	}
 }
 function setKey() {
-	window.addEventListener('keydown', function(event) {
+	window.addEventListener('keydown', function (event) {
 		NumBer(event.key);
 	});
 }
-let c = '1111';
+
+

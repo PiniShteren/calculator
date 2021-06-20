@@ -3,7 +3,10 @@ body {
 	display: flex;
 	margin-top: 5%;
 	padding-top: 10%;
-	white-space: initial;
+}
+#screen {
+	word-wrap: break-word;
+	font-size: 0.2em;
 }
 .calculator {
 	box-shadow: 0px 0px 0px black, 0 0 10px;
@@ -49,7 +52,7 @@ body {
 	border-radius: 30px;
 	font-size: 30px;
 	line-height: 15px;
-	box-shadow: 0px 0px 10px black, 0 0 10px;
+	box-shadow: -3px -3px 5px black, 0 0 10px;
 	border: none;
 }
 .fanc {
