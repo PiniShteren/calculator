@@ -50,31 +50,32 @@ function clickEvent(val) {
 	// 			}
 	// 		}
 	// }
+	let num = val > 0 && val <= 9 ? Number(val) : val;
 	if (
-		val !== '%' &&
-		val !== '-' &&
-		val !== '*' &&
-		val !== '+' &&
-		val !== '%' &&
-		val !== '/' &&
-		val !== '.' &&
-		Number.isInteger(val) === false
+		num !== '%' &&
+		num !== '-' &&
+		num !== '*' &&
+		num !== '+' &&
+		num !== '%' &&
+		num !== '/' &&
+		num !== '.' &&
+		num !== "0" &&
+		Number.isInteger(num) === false
 	) {
 		return;
 	}
-
 	if (p.length === 0) {
-		if (val > 0 && val <= 9) {
-			p.push(val);
-			document.getElementById('screen').innerHTML = val;
+		if (num > 0 && num <= 9) {
+			p.push(num);
+			document.getElementById('screen').innerHTML = num;
 		}
 	}
 	else {
-		if (val >= 0 && val <= 9) {
+		if (num >= 0 && num <= 9) {
 			if ((p[p.length - 1] >= 0 && p[p.length - 1] <= 9) || p[p.length - 1] === '.') {
 				debugger
-				p.push(val);
-				v = document.getElementById('screen').innerHTML.toString() + val;
+				p.push(num);
+				v = document.getElementById('screen').innerHTML.toString() + num;
 				v = v.replace(/,/g, '');
 				if (v.indexOf('.') > 0) {
 					let index = v.indexOf('.');
@@ -91,14 +92,14 @@ function clickEvent(val) {
 				return;
 			}
 			else {
-				p.push(val);
-				document.getElementById('screen').innerHTML = val.toLocaleString();
+				p.push(num);
+				document.getElementById('screen').innerHTML = num.toLocaleString();
 				dot = false;
 			}
 		}
 		else {
-			if (val === '%') {
-				document.getElementById('screen').innerHTML += val;
+			if (num === '%') {
+				document.getElementById('screen').innerHTML += num;
 				let p1 = p[0].toString();
 				let p2 = '';
 				let fanc = 0;
@@ -136,12 +137,12 @@ function clickEvent(val) {
 					document.getElementById('screen').innerHTML = y.toLocaleString();
 					p = [
 						y,
-						val
+						num
 					];
 					dot = false;
 				}
 				else {
-					p.push(val);
+					p.push(num);
 				}
 			}
 		}
@@ -184,10 +185,12 @@ function equal() {
 		];
 	}
 }
-function setKey() {
-	window.addEventListener('keydown', function (event) {
-		NumBer(event.key);
-	});
+
+let nums = document.querySelectorAll('#num')
+for(let i = 0; i < nums.length; i++){
+	nums[i].onclick = ({target}) => clickEvent(target.value)
 }
 
-
+document.getElementById('dot').onclick = () => dot();
+document.getElementById('clean').onclick = () => clean();
+document.getElementById('equal').onclick = () => equal();

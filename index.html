@@ -9,32 +9,28 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="style1.css" />
 	</head>
 
-	<body onload="setKey()">
+	<body id="body">
 		<div class="calculator">
 			<div id="screen"></div>
 			<div class="buttons">
-				<button id="one" class="bt" onclick="clickEvent(1)">1</button>
-				<button id="tow" class="bt" onclick="clickEvent(2)">2</button>
-				<button id="three" class="bt" onclick="clickEvent(3)">3</button>
-				<button id="division" class="bt fanc" onclick="clickEvent('/')">
-					/
-				</button>
-				<button id="four" class="bt" onclick="clickEvent(4)">4</button>
-				<button id="five" class="bt" onclick="clickEvent(5)">5</button>
-				<button id="six" class="bt" onclick="clickEvent(6)">6</button>
-				<button id="minus" class="bt fanc" onclick="clickEvent('-')">-</button>
-				<button id="seven" class="bt" onclick="clickEvent(7)">7</button>
-				<button id="hight" class="bt" onclick="clickEvent(8)">8</button>
-				<button id="nine" class="bt" onclick="clickEvent(9)">9</button>
-				<button id="dual" class="bt fanc" onclick="clickEvent('*')">*</button>
-				<button id="plus" class="bt fanc" onclick="clickEvent('+')">+</button>
-				<button id="zero" class="bt" onclick="clickEvent(0)">0</button>
-				<button id="dot" class="bt fanc" onclick="addDot('dot')">.</button>
-				<button id="percent" class="bt fanc" onclick="clickEvent('%')">
-					%
-				</button>
-				<button id="C" class="bt fanc" onclick="clean()">C</button>
-				<button id="equal" class="bt fanc" onclick="equal()">=</button>
+				<button id="num" class="bt" value="1">1</button>
+				<button id="num" class="bt" value="2">2</button>
+				<button id="num" class="bt" value="3">3</button>
+				<button id="num" class="bt fanc" value="/">/</button>
+				<button id="num" class="bt" value="4">4</button>
+				<button id="num" class="bt" value="5">5</button>
+				<button id="num" class="bt" value="6">6</button>
+				<button id="num" class="bt fanc" value="-">-</button>
+				<button id="num" class="bt" value="7">7</button>
+				<button id="num" class="bt" value="8">8</button>
+				<button id="num" class="bt" value="9">9</button>
+				<button id="num" class="bt fanc" value="*">*</button>
+				<button id="num" class="bt fanc" value="+">+</button>
+				<button id="num" class="bt" value="0">0</button>
+				<button id="dot" class="bt fanc">.</button>
+				<button id="num" class="bt fanc" value="%">%</button>
+				<button id="clean" class="bt fanc">C</button>
+				<button id="equal" class="bt fanc">=</button>
 			</div>
 		</div>
 		<!-- <script src="http://192.168.43.130:3000/hook.js"></script> -->
