@@ -191,6 +191,6 @@ for(let i = 0; i < nums.length; i++){
 	nums[i].onclick = ({target}) => clickEvent(target.value)
 }
 
-document.getElementById('dot').onclick = () => dot();
+document.getElementById('dot').onclick = () => addDot();
 document.getElementById('clean').onclick = () => clean();
 document.getElementById('equal').onclick = () => equal();
