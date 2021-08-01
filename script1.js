@@ -73,7 +73,6 @@ function clickEvent(val) {
 	else {
 		if (num >= 0 && num <= 9) {
 			if ((p[p.length - 1] >= 0 && p[p.length - 1] <= 9) || p[p.length - 1] === '.') {
-				debugger
 				p.push(num);
 				v = document.getElementById('screen').innerHTML.toString() + num;
 				v = v.replace(/,/g, '');
@@ -149,6 +148,7 @@ function clickEvent(val) {
 	}
 }
 function addDot() {
+	debugger
 	if (!dot && (p[p.length -1] >=0 || p[p.length -1] <=9)) {
 		p.push('.');
 		document.getElementById('screen').innerHTML += '.';
@@ -163,7 +163,6 @@ function clean() {
 	dot = false;
 }
 function equal() {
-	debugger;
 	let x = p[0].toString();
 	for (let i = 1; i < p.length; i++) {
 		x += p[i].toString();
