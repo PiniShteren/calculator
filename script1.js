@@ -1,6 +1,6 @@
 var p = [];
 let dot = false;
-function NumBer(val) {
+function clickEvent(val) {
 	switch (document.getElementById('screen').innerHTML.length) {
 		case 7:
 			document.getElementById('screen').style.fontSize = '28px';
@@ -16,38 +16,40 @@ function NumBer(val) {
 			p = [];
 			break;
 	}
-	switch (val) {
-		case NumBer(val), 0:
-			if (p.length === 0) {
-				p.push(val);
-				document.getElementById('screen').innerHTML = val;
-				break;
-			} else {
-				if (Number(p[p.length - 1]) || p[p.length - 1] === 0 || p[p.length - 1] === ".") {
-					p.push(val);
-					let v = 0;
-					v = document.getElementById('screen').innerHTML.toString() + val;
-					v = v.replace(/,/g, '');
-					if (v.indexOf('.') > 0) {
-						let index = v.indexOf('.');
-						let num1 = v.slice(0, index);
-						num1 = Math.floor(num1).toLocaleString();
-						let num2 = v.slice(index);
-						v = num1 + num2;
-						console.log(v);
-					}
-					else {
-						v = Math.floor(v).toLocaleString();
-					}
-					document.getElementById('screen').innerHTML = v;
-					break
-				} else {
-					p.push(val);
-					document.getElementById('screen').innerHTML = val.toLocaleString();
-					dot = false;
-				}
-			}
-	}
+	// switch (val) {
+	// 	case Number(val), 0:
+	// 		if (p.length === 0) {
+	// 			if(val > 0){
+	// 			p.push(val);
+	// 			document.getElementById('screen').innerHTML = val;
+	// 			break;	
+	// 			}
+	// 		} else {
+	// 			if (Number(p[p.length - 1]) || p[p.length - 1] === 0 || p[p.length - 1] === ".") {
+	// 				p.push(val);
+	// 				let v = 0;
+	// 				v = document.getElementById('screen').innerHTML.toString() + val;
+	// 				v = v.replace(/,/g, '');
+	// 				if (v.indexOf('.') > 0) {
+	// 					let index = v.indexOf('.');
+	// 					let num1 = v.slice(0, index);
+	// 					num1 = Math.floor(num1).toLocaleString();
+	// 					let num2 = v.slice(index);
+	// 					v = num1 + num2;
+	// 					console.log(v);
+	// 				}
+	// 				else {
+	// 					v = Math.floor(v).toLocaleString();
+	// 				}
+	// 				document.getElementById('screen').innerHTML = v;
+	// 				break
+	// 			} else {
+	// 				p.push(val);
+	// 				document.getElementById('screen').innerHTML = val.toLocaleString();
+	// 				dot = false;
+	// 			}
+	// 		}
+	// }
 	if (
 		val !== '%' &&
 		val !== '-' &&
@@ -62,7 +64,7 @@ function NumBer(val) {
 	}
 
 	if (p.length === 0) {
-		if (val >= 0 && val <= 9) {
+		if (val > 0 && val <= 9) {
 			p.push(val);
 			document.getElementById('screen').innerHTML = val;
 		}
@@ -146,7 +148,7 @@ function NumBer(val) {
 	}
 }
 function addDot() {
-	if (!dot) {
+	if (!dot && (p[p.length -1] >=0 || p[p.length -1] <=9)) {
 		p.push('.');
 		document.getElementById('screen').innerHTML += '.';
 		dot = true;
